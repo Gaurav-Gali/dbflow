@@ -2,17 +2,25 @@ import React from 'react';
 import NodeEditor from "@/components/Nodes/NodeEditor";
 import TableViewer from "@/components/Table/TableViewer";
 
+import {
+    ResizableHandle,
+    ResizablePanel,
+    ResizablePanelGroup,
+} from "@/components/ui/resizable"
+
 const Page = () => {
     return (
-        <div className="h-screen flex flex-col">
-            <div className="flex-1">
+        <ResizablePanelGroup className={"h-screen"} direction="horizontal">
+            <ResizablePanel>
                 <NodeEditor />
-            </div>
+            </ResizablePanel>
 
-            <div className="flex-1 border-t border-t-zinc-100">
+            <ResizableHandle className={"bg-zinc-100"} />
+
+            <ResizablePanel minSize={20} maxSize={80}>
                 <TableViewer />
-            </div>
-        </div>
+            </ResizablePanel>
+        </ResizablePanelGroup>
     );
 };
 

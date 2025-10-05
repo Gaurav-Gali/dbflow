@@ -40,7 +40,7 @@ const Page = () => {
 
 
     return (
-        <div style={{ width: '100vw', height:'50vh', position: 'relative' }}>
+        <div style={{ width: '100vw', height:'100vh', position: 'relative' }}>
             <ReactFlowProvider>
                 <Background  color="#ccc"/>
                 <ReactFlow
