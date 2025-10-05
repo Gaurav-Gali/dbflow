@@ -1,11 +1,13 @@
 import {atom} from "jotai";
 
-const initialNodes = [
-    {id: 'n1', position: {x: 0, y: 0}, data: {label: 'Node 1'}},
-    {id: 'n2', position: {x: 0, y: 100}, data: {label: 'Node 2'}}
-];
+import {NodeType} from "@/types/NodeType";
+import {EdgeType} from "@/types/EdgeType";
 
-const initialEdges = [{id: 'n1-n2', source: 'n1', target: 'n2', label:"connected", animated:true}];
+export const NodesAtom = atom<NodeType[]>([
+    {id: 'n1', position: {x: 0, y: 0}, type:"tableNode"},
+    {id: 'n2', position: {x: 0, y: 100}, type: "dbNode"},
+]);
 
-export const NodesAtom = atom(initialNodes);
-export const EdgesAtom = atom(initialEdges);
+export const EdgesAtom = atom<EdgeType[]>([
+    {id: 'n1-n2', source: 'n1', target: 'n2', animated:true}
+]);
