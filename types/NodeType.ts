@@ -1,6 +1,6 @@
 import {nodeTypes} from "@/types/nodeTypes.";
 
-export type dataType = Record<string, boolean|string|number|string[]|number[]>;
+export type dataType = Record<string, boolean|string|number|string[]|number[]|unknown>;
 
 export type NodeType = {
     id: string;

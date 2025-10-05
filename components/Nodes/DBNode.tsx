@@ -4,7 +4,7 @@ import React from "react";
 import { Handle, Position } from "@xyflow/react";
 import {ChevronRight, Database, Play, Settings, Table2} from "lucide-react";
 
-const DbNode = () => {
+const DbNode = ({id}:{id:string}) => {
     return (
         <div>
             <div className="bg-zinc-50 relative border border-zinc-100 rounded-sm px-2 py-1 w-36 flex flex-col gap-2 text-sm">

@@ -13,10 +13,12 @@ import {useAtom} from "jotai";
 import {EdgesAtom, NodesAtom} from "@/store/NodesState";
 
 import {nodeTypes} from "@/types/nodeTypes.";
+import {NodeType} from "@/types/NodeType";
+import {EdgeType} from "@/types/EdgeType";
 
 const Page = () => {
-    const [nodes, setNodes] = useAtom(NodesAtom);
-    const [edges, setEdges] = useAtom(EdgesAtom);
+    const [nodes, setNodes] = useAtom<NodeType>(NodesAtom);
+    const [edges, setEdges] = useAtom<EdgeType>(EdgesAtom);
 
     // Node Event Handlers
     const onNodesChange = useCallback(
@@ -28,15 +30,37 @@ const Page = () => {
         [],
     );
 
-    const onConnect = useCallback(
-        (params) =>
-            setEdges((edgesSnapshot) => {
-                const newEdges = addEdge(params, edgesSnapshot);
-                console.log("Edges after connect:", newEdges);
-                return newEdges;
-            }),
-        []
-    );
+    const onConnect = useCallback((params) => {
+        setEdges((prevEdges) => {
+            // Check if the target handle is already connected
+            const existingEdgeIndex = prevEdges.findIndex(
+                (e) =>
+                    e.target === params.target &&
+                    e.targetHandle === params.targetHandle
+            );
+
+            const newEdges:EdgeType[] = [...prevEdges];
+
+            if (existingEdgeIndex !== -1) {
+                // Remove the old edge
+                newEdges.splice(existingEdgeIndex, 1);
+            }
+
+            // Add the new edge
+            newEdges.push({
+                id: `${params.source}-${params.target}`,
+                sourceHandle: params.sourceHandle,
+                targetHandle: params.targetHandle,
+                source: params.source,
+                target: params.target,
+                animated: true,
+            });
+
+            return newEdges;
+        });
+    }, []);
+
+
 
 
     return (
