@@ -1,6 +1,7 @@
 import {nodeTypes} from "@/types/nodeTypes.";
+import {CsvDataType} from "@/store/TableDataStore";
 
-export type dataType = Record<string, boolean|string|number|string[]|number[]|unknown>;
+export type dataType = Record<string, CsvDataType>;
 
 export type NodeType = {
     id: string;

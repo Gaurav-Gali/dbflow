@@ -7,7 +7,7 @@ import {ChevronRight, Database, Play, Settings, Table2} from "lucide-react";
 const DbNode = ({id}:{id:string}) => {
     return (
         <div>
-            <div className="bg-zinc-50 relative border border-zinc-100 rounded-sm px-2 py-1 w-36 flex flex-col gap-2 text-sm">
+            <div className="bg-zinc-50 active:border-zinc-200 relative border-[0.5px] border-zinc-100 rounded-full px-2 py-1 w-36 flex flex-col gap-2 text-sm">
                 <Handle
                     type="source"
                     position={Position.Right}
@@ -37,7 +37,7 @@ const DbNode = ({id}:{id:string}) => {
                     Firebase
                 </p>
 
-                <ChevronRight size={8}/>
+                <ChevronRight className={"text-zinc-500"} size={8}/>
 
                 <p className={"text-[8px] flex items-center justify-center gap-0.5 text-zinc-500"}>
                     <Table2 className={"text-sky-400"} size={8}/>

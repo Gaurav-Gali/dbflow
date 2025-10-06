@@ -1,3 +1,5 @@
 import {atom} from "jotai";
 
-export const TableDataAtom = atom();
+export type CsvDataType = string[][];
+
+export const TableDataAtom = atom<CsvDataType>([]);
