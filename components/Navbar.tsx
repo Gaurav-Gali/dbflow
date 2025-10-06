@@ -5,12 +5,12 @@ import React from 'react';
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator,
+    DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {useAddNode} from "@/actions/AddNode";
 import {cn} from "@/lib/utils";
-import {ArrowRight, CirclePlus, Plus} from "lucide-react";
+import {ArrowRight} from "lucide-react";
 
 const Navbar = () => {
     const addNode = useAddNode();
@@ -43,11 +43,24 @@ const Navbar = () => {
             ]
         },
         {
-            "title" : "Filter",
+            "title" : "Logic",
+            "nodes" : [
+                {
+                    "title" : "Conditional",
+                    "onClick": () => addNode("tableNode"),
+                }
+            ]
+        },
+        {
+            "title" : "Functions",
             "nodes" : [
                 {
                     "title" : "Merge",
-                    "onClick": () => addNode("tableNode"),
+                    "onClick": () => addNode("mergeNode"),
+                },
+                {
+                    "title" : "Formatter",
+                    "onClick": () => addNode("mergeNode"),
                 }
             ]
         }
@@ -56,10 +69,10 @@ const Navbar = () => {
     return (
         <div className="absolute top-4 left-4 z-50 w-[70vw]">
             <div className={"flex items-center justify-start gap-5"}>
-                <p className={"text-zinc-600 w-fit bg-white px-4 py-2 rounded-full border-none border-zinc-200 flex text-lg font-bold"}>
+                <span className={"text-zinc-600 w-fit bg-white px-4 py-2 rounded-full border-none border-zinc-200 flex text-lg font-bold"}>
                     DB
                     <p className={"font-light"}>Flow</p>
-                </p>
+                </span>
 
                 {/* Nodes */}
                 <div className={"w-full flex items-center justify-start gap-0 overflow-x-auto"}>

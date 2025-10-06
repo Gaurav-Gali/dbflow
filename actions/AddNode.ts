@@ -6,6 +6,7 @@ import {NodeType} from "@/types/NodeType";
 
 import {nodeTypes} from "@/types/nodeTypes.";
 import { v4 as uuidv4 } from 'uuid';
+import {DataTypeFinder} from "@/actions/DataTypeFinder";
 
 export const useAddNode = () => {
     const [nodes,setNodes] = useAtom<NodeType[]>(NodesAtom);
@@ -14,7 +15,7 @@ export const useAddNode = () => {
         setNodes((prevNodes) => [...prevNodes, {
             id: uuidv4().toString(),
             position:{x:0,y:0},
-            data:{"data":[]},
+            data:{"data":[],"type":DataTypeFinder(type)},
             type:type
         }]);
     }

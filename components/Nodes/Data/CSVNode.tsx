@@ -84,7 +84,7 @@ const CSVNode = ({ id }: { id: string }) => {
                 <Handle
                     type="source"
                     position={Position.Right}
-                    id="db_output"
+                    id="csv_output"
                     style={{
                         background: "oklch(87.1% 0.006 286.286)",
                         width: 8,
