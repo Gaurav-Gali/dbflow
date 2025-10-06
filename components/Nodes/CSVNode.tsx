@@ -80,7 +80,7 @@ const CSVNode = ({ id }: { id: string }) => {
 
     return (
         <div>
-            <div className="bg-zinc-50 active:border-zinc-200 relative border-[0.5px] border-zinc-100 rounded-full px-2 py-1 w-36 flex flex-col gap-2 text-sm">
+            <div className="bg-white active:border-zinc-200 relative border-[0.5px] border-zinc-100 rounded-full px-2 py-1 w-36 flex flex-col gap-2 text-sm">
                 <Handle
                     type="source"
                     position={Position.Right}

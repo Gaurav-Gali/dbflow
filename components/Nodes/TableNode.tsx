@@ -44,7 +44,7 @@ const TableNode = ({ id }: { id: string }) => {
     };
 
     return (
-        <div className="bg-zinc-50 active:border-zinc-200 border-[0.5px] border-zinc-100 rounded-full pl-2 pr-1 py-1">
+        <div className="bg-white active:border-zinc-200 border-[0.5px] border-zinc-100 rounded-full pl-2 pr-1 py-1">
             <Handle
                 type="target"
                 position={Position.Left}
